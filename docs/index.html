@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spencer Williams</title>
+  <style>
+  
+	html {
+	scroll-behavior: smooth;
+	}
+  
+    /* Add some basic styling */
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(to bottom, #8ED1FC, #1E90FF);
+      color:  #333333;
+    }
+    
+    h1 {
+      margin-top: 0;
+	  font-family:  Arial, sans-serif;
+    }
+	h2, h3 {
+	font-family:  Arial, sans-serif;
+	}
+    
+    .intro {
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-radius: 10px;
+      background-color: #F2F2F2;
+      padding: 20px;
+    }
+    
+    .intro h1 {
+      font-size: 52px;
+      text-align: right;
+      margin-bottom: 10px;
+      color: #E74C3C;
+    }
+	
+	.contact-links {
+      margin-top: 10px;
+	  font-size: 18px;
+    }
+	
+	.contact-links a {
+      margin: 0 5px;
+      color: #333;
+      text-decoration: none;
+    }
+    
+    .contact-links a:hover {
+      color: #111;
+    }
+    
+    .intro p {
+      font-size: 18px;
+      margin-top: 10px;
+      text-align: right;
+      color: #E74C3C;
+    }
+    .projects-wrapper {
+	  background-color: #E74C3C;
+	  border-radius: 10px;
+	  padding: 20px;
+	  margin-bottom: 20px;
+	  /* Add any additional styling you want for the big box */
+	}
+    .project-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background-color: #F2F2F2;
+      padding: 20px;
+    }
+    
+    .project-video {
+      position: relative;
+      width: 70%;
+      max-width: 800px;
+      height: auto;
+      margin-right: 20px;
+    }
+    
+    .project-video img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+	  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+
+    }
+	
+    .play-button-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background-image: url('play-button-icon.png');
+      background-size: cover;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .project-video:hover .play-button-overlay {
+      opacity: 1;
+    }
+    
+    .project-details,
+    .about-details {
+      flex: 1;
+      text-align: left;
+      max-width: 50%;
+    }
+    
+    .project-name {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      text-align: center;
+      color: #333;
+    }
+    
+    .project-description,
+    .about-description {
+	  text-align: center;
+      font-size: 18px;
+      color: #333333;
+	  padding-right: 20px;
+    }
+    
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background-color: #F2F2F2;
+      padding: 20px;
+    }
+    
+    .about-name {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+      text-align: center;
+      color: #333;
+    }
+    
+    .about-description {
+      font-size: 18px;
+      text-align: center;
+      word-wrap: break-word;
+      max-width: 100%;
+      color: #333;
+    }
+	.education-section {
+	  background-color: #F2F2F2;
+	  border-radius: 10px;
+	  padding: 20px;
+	  margin-bottom: 20px;
+	}
+
+	.education-container {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	}
+
+	.education-details {
+	  display: flex;
+	  flex-wrap: wrap;
+	  align-items: flex-center;
+	  margin-bottom: 20px;
+	}
+
+	.school-picture-container {
+	  width: 30%;
+	  max-width: 200px;
+	  height: auto;
+	  margin-right: 20px;
+	}
+
+	.school-picture {
+	  width: 100%;
+	  height: auto;
+	}
+
+	.education-content {
+	  flex: 1;
+	  margin-top: 20px;
+	  text-align: left;
+	  max-width: 70%;
+	}
+
+	.degree {
+	  font-size: 24px;
+	  font-weight: bold;
+	  margin-top: 0;
+	  text-align: center;
+	  color: #222;
+	}
+
+	.school-name {
+	  font-size: 18px;
+	  font-weight: bold;
+	  margin-top: 10px;
+	  text-align: center;
+	  color: #555;
+	}
+
+	.additional-details {
+	  font-size: 18px;
+	  text-align: center;
+	  margin-top: 10px;
+	  color: #777;
+	}
+    
+    /* New CSS for the "About Me" picture */
+    .about-picture-container {
+      position:relative;
+      width: 70%;
+      max-width: 800px;
+      height: auto;
+      margin-right: 20px;
+    }
+    
+    .about-picture {
+      width: 50%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .skills-container {
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background-color: #F2F2F2;
+      padding: 20px;
+    }
+    
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    }
+    
+    .skill {
+      padding: 5px 10px;
+      margin: 5px;
+      background-color: #ddd;
+      border-radius: 20px;
+      color: #333;
+      font-size: 16px;
+    }
+    
+    @media (max-width:1100px) {
+      .project-video {
+        width: 100%;
+        margin-right: 0;
+      }
+	  .project-details {
+		max-width: 100%;
+		text-align: center;
+	  }
+	  
+		.project-container{
+       flex-direction: column-reverse;
+       align-items: center;
+      }
+      
+      .about-container {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+       .education-container {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+	   .about-container {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+      .about-details {
+        margin-top: 20px;
+        max-width: 100%;
+      }
+      
+      .about-name,
+      .about-description,
+      .project-name,
+      .project-description {
+        text-align: center;
+        max-width: 100%;
+      }
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="intro">
+    <h1>Spencer Williams</h1>
+    <div class="contact-links">
+      <a href="mailto:spencerwilliams@zoho.com">Email</a> |
+      <a href="https://www.linkedin.com/in/5pencer/">LinkedIn</a> |
+      <a href="https://github.com/5pencerW">GitHub</a>
+    </div>
+  </div>
+  
+  <div class="about-container">
+    <div class="about-picture-container">
+      <img src="profile-picture.jpg" alt="Profile Picture" class="about-picture">
+    </div>
+    <div class="about-details">
+      <h2 class="about-name">About Me</h2>
+      <p class="about-description">I'm Spencer Williams, a computer engineering graduate from California State University Fullerton. Inspired by my early experiences with computers and building my own machine, I pursued a Bachelor of Science degree in computer engineering. I find great excitement in the fusion of software and hardware, particularly in areas like robotics, where computers interact with the real world. Proficient in languages such as C++, C, and Python, I approach technical challenges with a creative problem-solving mindset. Outside of my work, I enjoy playing video games, exploring 3D printing, indulging in music, and experimenting with cooking. Welcome to my website, where you can learn more about my skills, projects, and experiences.</p>
+    </div>
+  </div>
+  
+	<div class="section education-section">
+	  <h1>Education</h1>
+	  <div class="education-container">
+		<div class="education-details">
+		  <div class="school-picture-container">
+			<img src="school.png" alt="School Picture" class="school-picture">
+		  </div>
+		  <div class="education-content">
+			<h2 class="degree">Bachelor of Science in Computer Engineering</h2>
+			<p class="school-name">California State University Fullerton</p>
+			<p class="additional-details">Started August 2019 and completed May 2023 with 3.24 GPA</p>
+		  </div>
+		</div>
+		<!-- Add more education details if needed -->
+	  </div>
+	</div>
+
+
+
+  <div class="projects-wrapper">
+  <h1>Projects</h1>
+  <p>Click an image to watch the project in action</p>
+  
+  <div class="project-container">
+    <div class="project-details">
+      <h2 class="project-name">Automatic Waste Sorter </h2>
+      <p class="project-description">Collaborated with a team of four to develop the Automatic Waste Sorter, a machine learning-based waste management system that sorts waste into recyclable, organic, and non-recyclable categories.
+Engineered and programmed the physical sorting system, including custom hardware and software, to accurately sort waste using a rail system.
+Worked collaboratively with team members to integrate machine learning algorithms for waste detection and classification.
+</p>
+    </div>
+    <div class="project-video">
+      <div class="play-button-overlay" onclick="playVideo(this.parentNode, 'video1.mp4')"></div>
+      <img src="video1.jpg" onclick="playVideo(this.parentNode, 'video1.mp4')">
+    </div>
+  </div>
+  
+  <div class="project-container">
+    <div class="project-details">
+      <h2 class="project-name">CD Spotify Jukebox</h2>
+      <p class="project-description">Designed and custom-built a CD Spotify Jukebox utilizing a Raspberry Pi Zero and servo motors to control a robotic arm for picking up and displaying CDs. Developed using Python software, including album playback through the Spotify API.
+Utilized CAD software to design and 3D print all parts, and implemented illuminated buttons and dynamic lighting.
+Demonstrated strong problem-solving and technical skills through assembly, fine-tuning, and testing of the robotic arm.
+</p>
+    </div>
+    <div class="project-video">
+      <div class="play-button-overlay" onclick="playVideo(this.parentNode, 'video2.mp4')"></div>
+      <img src="video2.jpg" onclick="playVideo(this.parentNode, 'video2.mp4')">
+    </div>
+  </div>
+  
+  <div class="project-container">
+    <div class="project-details">
+      <h2 class="project-name">Basketball Scoreboard</h2>
+      <p class="project-description">As part of a team of three, designed and implemented a basketball scoreboard on an FPGA board using Verilog. The scoreboard features a timer and two separate point displays on one 7-segment display. Implemented user input for stopping the timer and adding 1, 2, and 3 points. Contributed to the design and coding of the scoreboard logic and display components, demonstrating proficiency in Verilog and digital design.</p>
+    </div>
+    <div class="project-video">
+      <div class="play-button-overlay" onclick="playVideo(this.parentNode, 'video3.mp4')"></div>
+      <img src="video3.jpg" onclick="playVideo(this.parentNode, 'video3.mp4')">
+    </div>
+  </div>
+  </div>
+  
+  <div class="skills-container">
+    <h1>Skills</h1>
+    <div class="skills-list">
+      <div class="skill">C++</div>
+      <div class="skill">C</div>
+      <div class="skill">Python</div>
+      <div class="skill">Verilog</div>
+      <div class="skill">Embedded Systems</div>
+      <div class="skill">Microcontrollers</div>
+      <div class="skill">Operating Systems</div>
+      <div class="skill">Linux</div>
+	  <div class="skill">Git</div>
+    </div>
+  </div>
+
+  
+  <script>
+    function playVideo(element, videoUrl) {
+      var videoElement = document.createElement('video');
+      videoElement.src = videoUrl;
+      videoElement.controls = true;
+      videoElement.autoplay = true;
+      videoElement.addEventListener('ended', function() {
+        element.removeChild(this);
+      });
+
+      // Set maximum width and height for the video element
+      videoElement.style.maxWidth = '100%';
+      videoElement.style.maxHeight = '100%';
+
+      element.innerHTML = '';
+      element.appendChild(videoElement);
+    }
+
+  </script>
+</body>
+</html>
